@@ -19,4 +19,9 @@ jobs:
       - run: |
           cd /opt/hostedtoolcache/Python/3.13.1/x64/lib/python3.13/site-packages
           python -m nuitka --standalone --include-package=jc --onefile jc
-    
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: binary
+          path: /opt/hostedtoolcache/Python/3.13.1/x64/lib/python3.13/site-packages/jc.bin
+
